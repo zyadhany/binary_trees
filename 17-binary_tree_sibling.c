@@ -6,7 +6,7 @@
  *
  * Return: NULL at error or a pointer to the new node.
  */
-binary_tree_t *binary_tree_sibling(const binary_tree_t *node)
+binary_tree_t *binary_tree_sibling(binary_tree_t *node)
 {
 	if (!node || !node->parent)
 		return (NULL);
