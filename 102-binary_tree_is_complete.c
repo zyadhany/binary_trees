@@ -67,8 +67,8 @@ int binary_full_recurs(const binary_tree_t *tree, int deap, int at)
 	if (!tree->left || !tree->right)
 		return (0);
 
-	l = binary_full_recursive(tree->left);
-	r = binary_full_recursive(tree->right);
+	l = binary_full_recurs(tree->left);
+	r = binary_full_recurs(tree->right);
 
 	return (l * r);
 }
