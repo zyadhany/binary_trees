@@ -10,7 +10,7 @@
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
 	int deap = 0;
-	binary_tree_t *at = tree;
+	binary_tree_t *at = (binary_tree_t *)tree;
 
 	if (!tree)
 		return (0);
