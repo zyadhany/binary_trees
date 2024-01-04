@@ -54,5 +54,6 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 /* custom */
 int bt_height(const binary_tree_t *tree);
 int binary_full_recursive(const binary_tree_t *tree);
+int binary_perfet_recursive(const binary_tree_t *tree, int deap, int at);
 
 #endif /* BINARY_TREES_H */
