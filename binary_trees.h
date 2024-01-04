@@ -76,6 +76,6 @@ int *heap_to_sorted_array(heap_t *heap, size_t *size);
 int bt_height(const binary_tree_t *tree);
 int binary_full_recursive(const binary_tree_t *tree);
 int binary_perfet_recursive(const binary_tree_t *tree, int deap, int at);
-int binary_full_recurs(const binary_tree_t *tree, int deap, int at);
+int binary_complete_recursive(const binary_tree_t *tree, int deap, int at, int *end);
 
 #endif /* BINARY_TREES_H */

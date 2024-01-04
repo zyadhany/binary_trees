@@ -8,7 +8,8 @@
  */
 int binary_tree_is_complete(const binary_tree_t *tree)
 {
-	int deap = 0;
+	int deap = 0, end = 1;
+
 	binary_tree_t *at = (binary_tree_t *)tree;
 
 	if (!tree)
@@ -16,59 +17,46 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 
 	while (at->left)
 	{
-		at = at->left;
+		if (at->left)
+			at = at->left;
+		else
+			at = at->right;
 		deap++;
 	}
 
-	return (binary_full_recurs(tree, deap, 0) &&
-			binary_perfet_recursive(tree, deap, 0));
+	return (binary_complete_recursive(tree, deap, 0, &end));
 }
 
 /**
- * binary_perfet_recursive - delette binary tree node.
+ * binary_complete_recursive - delette binary tree node.
  * @tree: parent node.
  * @deap: tree deapth
  * @at: current deapth
+ * @end: aa
  *
  * Return: NULL at error or a pointer to the new node.
  */
-int binary_perfet_recursive(const binary_tree_t *tree, int deap, int at)
+int binary_complete_recursive(const binary_tree_t *tree,
+				int deap, int at, int *end)
 {
 	int l, r;
 
-	if (!tree->left && !tree->right)
+	if (!tree)
+	{
+		*end = 0;
 		return (at == deap);
+	}
 
-	l = binary_perfet_recursive(tree->left, deap, at + 1);
-	r = binary_perfet_recursive(tree->right, deap, at + 1);
+	if (at == deap)
+	{
+		if (tree->left || tree->right)
+			return (0);
+		return (*end);
+	}
+
+
+	l = binary_complete_recursive(tree->left, deap, at + 1, end);
+	r = binary_complete_recursive(tree->right, deap, at + 1, end);
 
 	return (l & r);
-}
-
-
-/**
- * binary_full_recurs - delette binary tree node.
- * @tree: parent node.
- * @deap: d
- * @at: a
- *
- * Return: NULL at error or a pointer to the new node.
- */
-int binary_full_recurs(const binary_tree_t *tree, int deap, int at)
-{
-	int l, r;
-
-	if (!tree || at <= deap - 1)
-		return (1);
-
-	if (!tree->left && !tree->right)
-		return (1);
-
-	if (!tree->left || !tree->right)
-		return (0);
-
-	l = binary_full_recurs(tree->left, deap, at + 1);
-	r = binary_full_recurs(tree->right, deap, at + 1);
-
-	return (l * r);
 }
