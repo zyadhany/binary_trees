@@ -22,7 +22,7 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 	}
 
 	return (binary_full_recursive(tree) &&
-			binary_perfet_recursive(tree, deap, 1));
+			binary_perfet_recursive(tree, deap, 0));
 }
 
 /**
@@ -39,6 +39,7 @@ int binary_perfet_recursive(const binary_tree_t *tree, int deap, int at)
 
 	if (!tree->left && !tree->right)
 		return (at == deap);
+
 	l = binary_perfet_recursive(tree->left, deap, at + 1);
 	r = binary_perfet_recursive(tree->right, deap, at + 1);
 
