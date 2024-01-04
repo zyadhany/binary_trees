@@ -15,8 +15,8 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 		return;
 
 	Q = binary_tree_node(NULL, 0);
-	free(Q);
 	if (!Q)
 		return;
 
+	binary_tree_delete(Q);
 }
