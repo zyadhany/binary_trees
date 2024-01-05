@@ -9,6 +9,7 @@
  */
 bst_t *bst_remove(bst_t *root, int value)
 {
-
-	return (NULL);
+	if (!root)
+		return (NULL);
+	return (root);
 }
