@@ -16,5 +16,5 @@ bst_t *bst_search(const bst_t *tree, int value)
 		return (bst_search(tree->right, value));
 	if (tree->n > value)
 		return (bst_search(tree->left, value));
-	return (tree);
+	return ((bst_t *)tree);
 }
