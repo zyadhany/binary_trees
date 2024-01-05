@@ -7,8 +7,14 @@
  *
  * Return: NULL at error or a pointer to the new node.
  */
-bst_t *bst_remove(bst_t *root, int value)
+bst_t *bst_search(const bst_t *tree, int value)
 {
+	if (!tree)
+		return (NULL);
 
-	return (NULL);
+	if (tree->n < value)
+		return (bst_search(tree->right, value));
+	if (tree->n > value)
+		return (bst_search(tree->left, value));
+	return (tree);
 }
