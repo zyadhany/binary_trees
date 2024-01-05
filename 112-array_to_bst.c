@@ -9,7 +9,7 @@
  */
 bst_t *array_to_bst(int *array, size_t size)
 {
-	size_t i;
+	size_t i, j, re;
 	bst_t *node;
 
 	if (array == NULL)
@@ -18,8 +18,15 @@ bst_t *array_to_bst(int *array, size_t size)
 	node = NULL;
 
 	for (i = 0; i < size; i++)
-		if (bst_insert(&node, array[i]) == NULL)
-			return (NULL);
+	{
+		re = 1;
+		for (j = 0; j < i; j++)
+			if (array[j] == array[i])
+				re = 0;
+		if (re)
+			if (bst_insert(&node, array[i]) == NULL)
+				return (NULL);
+	}
 
 	return (node);
 }
