@@ -2,7 +2,7 @@
 
 /**
  * heap_insert - delette binary tree node.
- * @tree: parent node.
+ * @root: parent node.
  * @value: val
  *
  * Return: NULL at error or a pointer to the new node.
