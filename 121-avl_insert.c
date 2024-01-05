@@ -27,7 +27,7 @@ avl_t *avl_insert(avl_t **tree, int value)
 	if (at->n < value)
 	{
 		if (at->right)
-			return (bst_insert(&at->right, value));
+			return (avl_insert(&at->right, value));
 
 		tmp = binary_tree_node(at, value);
 		if (tmp == NULL)
@@ -39,7 +39,7 @@ avl_t *avl_insert(avl_t **tree, int value)
 	if (at->n > value)
 	{
 		if (at->left)
-			return (bst_insert(&at->left, value));
+			return (avl_insert(&at->left, value));
 
 		tmp = binary_tree_node(at, value);
 		if (tmp == NULL)
