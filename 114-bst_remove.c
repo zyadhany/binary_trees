@@ -11,5 +11,7 @@ bst_t *bst_remove(bst_t *root, int value)
 {
 	if (!root)
 		return (NULL);
+	if (value)
+		return (root);
 	return (root);
 }
