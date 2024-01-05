@@ -1,13 +1,13 @@
 #include "binary_trees.h"
 
 /**
- * array_to_avl - delette binary tree node.
+ * avl_remove - delette binary tree node.
  * @array: parent node.
  * @size: val
  *
  * Return: NULL at error or a pointer to the new node.
  */
-avl_t *array_to_avl(int *array, size_t size)
+avl_t *sorted_array_to_avl(int *array, size_t size)
 {
 	size_t i, j, re;
 	avl_t *node;
